@@ -1,0 +1,61 @@
+os.getcwd()  # affiche le reprtoire courant
+os.chdir(chemin) # change le repertoire courant
+
+
+df.duplicated().sum()  # number of duplicate
+df.isna().sum()
+
+
+
+
+# enregistrer le model 
+pickle.dump(model, open('model.pkls', 'wb'))
+
+
+
+
+
+#df= df.loc[df['SEXE'].str.contains('homme')]
+#df.loc[df['SEXE'] !='0','SEXE'] = 8
+
+#df.index
+#df.SEXE.value_counts() 
+#df.loc[df.SEXE =='homme','SEXE'] =np.nan
+
+#recode of TDT
+tdt_val = df['TDT'].drop_duplicates().values
+tdt_replace_val = np.arange( df['TDT'].drop_duplicates().size )
+df['TDT']= df['TDT'].replace(tdt_val,tdt_replace_val)
+
+#recodeof ECG
+ecg_val = df['ECG'].drop_duplicates().values
+ecg_replace_val = np.arange( df['ECG'].drop_duplicates().size )
+df['ECG']= df['ECG'].replace(ecg_val,ecg_replace_val)
+
+#recodeof ANGINE
+angine_val = df['ANGINE'].drop_duplicates().values
+angine_replace_val = np.arange( df['ANGINE'].drop_duplicates().size )
+df['ANGINE']= df['ANGINE'].replace(angine_val,angine_replace_val)
+
+#recodeof ECG
+pente_val = df['PENTE'].drop_duplicates().values
+pente_replace_val = np.arange( df['PENTE'].drop_duplicates().size )
+df['PENTE']= df['PENTE'].replace(pente_val,pente_replace_val)
+
+
+
+
+inputs = {
+    'AGE': request.form['AGE'],
+    'DEPRESSION': request.form['DEPRESSION'],
+    'SEXE': request.form['SEXE'],
+    'CHOLESTEROL': request.form['CHOLESTEROL'],
+    'GAJ': request.form['GAJ'],
+    'TDT': request.form['TDT'],
+    'PAR': request.form['PAR'],
+    'FCMAX': request.form['FCMAX'],
+    'ECG': request.form['ECG'],
+    'PENTE': request.form['PENTE'],
+    'ANGINE': request.form['ANGINE']
+
+}

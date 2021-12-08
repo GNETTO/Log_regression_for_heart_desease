@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block form %}
+<div class="testbox">
+    <form action="/" method="POST">
+        <div class="banner">
+            <h1>Etes vous malade ? </h1>
+        </div>
+        <br />
+
+        <div class="colums m-auto row row-cols-2" style="width:350px">
+            <div class="item col">
+                <label for="fname"> AGE<span>*</span></label>
+                <input id="fname" class="form-control" type="text" name="AGE" style="height: 31px; text-align: center;"
+                    require />
+            </div>
+            <div class="item col">
+                <p style="margin:0px">SEXE</p>
+                <select class="form-control" name="SEXE">
+                    <option selected value="" selected>Choisir ... </option>
+                    <option value="1">homme</option>
+                    <option value="0">Femme</option>
+
+                </select>
+            </div>
+            <div class="item">
+                <label for="lname"> Cholesterol<span>*</span></label>
+                <input id="lname" type="text" class="form-control" name="CHOLESTEROL" require
+                    style="height: 31px; text-align: center;" />
+            </div>
+            <div class="item">
+                <label for="title">GAJ<span>*</span></label>
+                <input id="title" type="text" class="form-control" name="GAJ" require
+                    style="height: 31px; text-align: center;" />
+            </div>
+            <div class="item">
+                <label for="org">Drepression<span>*</span></label>
+                <input id="org" type="text" class="form-control" name="DEPRESSION" require
+                    style="height: 31px; text-align: center;" />
+            </div>
+            <div class="item">
+                <label for="org">TDT<span>*</span></label>
+                <input id="org" type="text" class="form-control" name="TDT" require
+                    style="height: 31px; text-align: center;" />
+            </div>
+            <div class="item">
+                <label for="org">PAR<span>*</span></label>
+                <input id="org" type="text" class="form-control" name="PAR" require
+                    style="height: 31px; text-align: center;" />
+            </div>
+            <div class="item">
+                <label for="org">FCMAX<span>*</span></label>
+                <input id="org" type="text" class="form-control" name="FCMAX" require
+                    style="height: 31px; text-align: center;" />
+            </div>
+
+            <div class="item">
+                <p>ECG</p>
+                <select class="form-control" name="ECG">
+                    <option selected value="" disabled selected>Choisir ...</option>
+                    <option value="1">Normal</option>
+                    <option value="2">ST</option>
+                    <option value="3">LVH</option>
+
+                </select>
+            </div>
+            <div class="item">
+                <p>PENTE</p>
+                <select class="form-control" name="PENTE">
+                    <option selected value="" disabled selected>Choisir ...</option>
+                    <option value="1">Ascendant</option>
+                    <option value="2">Descendant</option>
+                    <option value="3">Plat</option>
+
+                </select>
+            </div>
+            <div class="question col-12">
+                <label>ANGINE.</label>
+
+                <input type="radio" value="1" id="radio_1" class="" name="ANGINE" />
+                <label for="radio_1" class="radio "><span>Oui</span></label>
+
+                <input type="radio" value="0" id="radio_2" name="ANGINE" />
+                <label for="radio_2" class="radio"><span>Non</span></label>
+            </div>
+            <div class="btn-block col-12 text-align-center">
+                <button type="submit" href="/" class="btn btn-outline-success">Demander une prediction</button>
+                <div class="text-danger">
+                    {{error}}
+                </div>
+                <div class="display-6">
+                    {{resp}}
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+{% endblock %}
